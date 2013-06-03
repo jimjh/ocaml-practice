@@ -1,6 +1,6 @@
 (* functions *)
 let f((x:int),(y:int)):int = x+y;;
-let rec fact(n:int):int = 
+let rec fact(n:int):int =
   if n=0 then 1
          else n*fact(n-1);;
 
@@ -68,7 +68,7 @@ let pers2={last = "Smith"; first = "Joe";
 let {first=first0; last=last0;
      age=age0; balance=balance0} = pers2;;
 
-let full_name{first=first;last=last;age=age;balance=balance}:string =
+let full_name{first=first;last=last}:string =
       first ^ " " ^ last (* ^ is the string concatenation operator *)
 
 
@@ -134,7 +134,7 @@ num_to_float(Real_num 2.13);;
 let max1(n1, n2):num =
   let r1:float = num_to_float(n1) in
   let r2:float = num_to_float(n2) in
-    if r1 >= r2 then Real_num(r1) 
+    if r1 >= r2 then Real_num(r1)
                 else Real_num(r2);;
 
 let max2(n1, n2):num =
@@ -148,9 +148,9 @@ let rec max3(n1, n2):num =
        Real_num(max r1 r2)
    | (Int_num(i1), Int_num(i2)) ->
        Int_num(max i1 i2)
-   | (_, Int_num(i2)) -> 
+   | (_, Int_num(i2)) ->
        max3(n1, Real_num(float_of_int(i2)))
-   | (Int_num(i1), _) -> 
+   | (Int_num(i1), _) ->
        max3(n2, Real_num(float_of_int(i1)));;
 
 
@@ -159,9 +159,9 @@ let rec max4(n1, n2):num =
   match (n1, n2) with
      (Int_num(i1), Int_num(i2)) ->
        Int_num(max i1 i2)
-   | (_, Int_num(i2)) -> 
+   | (_, Int_num(i2)) ->
        max4(n1, Real_num(float_of_int(i2)))
-   | (Int_num(i1), _) -> 
+   | (Int_num(i1), _) ->
        max4(n2, Real_num(float_of_int(i1)));;
 
 
@@ -171,8 +171,8 @@ let rec max5(n1, n2):num =
        Real_num(max r1 r2)
    | (Int_num(i1), Int_num(i2)) ->
        Int_num(max i1 i2)
-   | (_, Int_num(i2)) -> 
+   | (_, Int_num(i2)) ->
        max5(n1, Real_num(float_of_int(i2)))
-   | (Int_num(i1), _) -> 
+   | (Int_num(i1), _) ->
        max5(n2, Real_num(float_of_int(i1)))
    | (_, _) -> n1;;
